@@ -21,52 +21,57 @@ function App() {
   };
 
   return (
-    <div style={{ padding: "2rem", textAlign: "center" }}>
-      <h1>Kalkulator BMI</h1>
+    <div className="min-h-screen bg-gradient-to-br from-sky-100 to-blue-200 flex flex-col items-center justify-center p-4">
+      <div className="bg-white rounded-2xl shadow-lg p-8 w-full max-w-md text-center">
+        <h1 className="text-3xl font-bold mb-6 text-blue-700">Kalkulator BMI</h1>
 
-      <input
-        type="number"
-        placeholder="Berat (kg)"
-        value={weight}
-        onChange={(e) => setWeight(e.target.value)}
-        style={{ margin: "10px", padding: "8px" }}
-      />
-      <input
-        type="number"
-        placeholder="Tinggi (cm)"
-        value={height}
-        onChange={(e) => setHeight(e.target.value)}
-        style={{ margin: "10px", padding: "8px" }}
-      />
-      <input
-        type="number"
-        placeholder="Umur"
-        value={age}
-        onChange={(e) => setAge(e.target.value)}
-        style={{ margin: "10px", padding: "8px" }}
-      />
-      <select
-        value={gender}
-        onChange={(e) => setGender(e.target.value)}
-        style={{ margin: "10px", padding: "8px" }}
-      >
-        <option value="">Pilih Gender</option>
-        <option value="Laki-laki">Laki-laki</option>
-        <option value="Perempuan">Perempuan</option>
-      </select>
-      <br />
-      <button onClick={calculateBMI} style={{ padding: "10px 20px" }}>
-        Hitung
-      </button>
+        <input
+          type="number"
+          placeholder="Berat (kg)"
+          value={weight}
+          onChange={(e) => setWeight(e.target.value)}
+          className="w-full mb-4 p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+        />
+        <input
+          type="number"
+          placeholder="Tinggi (cm)"
+          value={height}
+          onChange={(e) => setHeight(e.target.value)}
+          className="w-full mb-4 p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+        />
+        <input
+          type="number"
+          placeholder="Umur"
+          value={age}
+          onChange={(e) => setAge(e.target.value)}
+          className="w-full mb-4 p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+        />
+        <select
+          value={gender}
+          onChange={(e) => setGender(e.target.value)}
+          className="w-full mb-4 p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+        >
+          <option value="">Pilih Gender</option>
+          <option value="Laki-laki">Laki-laki</option>
+          <option value="Perempuan">Perempuan</option>
+        </select>
 
-      {bmi && (
-        <div style={{ marginTop: "20px" }}>
-          <p><strong>BMI:</strong> {bmi}</p>
-          <p><strong>Kategori:</strong> {category}</p>
-          <p><strong>Umur:</strong> {age}</p>
-          <p><strong>Gender:</strong> {gender}</p>
-        </div>
-      )}
+        <button
+          onClick={calculateBMI}
+          className="w-full bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700 transition"
+        >
+          Hitung
+        </button>
+
+        {bmi && (
+          <div className="mt-6 text-left bg-blue-50 p-4 rounded-md">
+            <p className="font-semibold">BMI: <span className="text-blue-700">{bmi}</span></p>
+            <p className="font-semibold">Kategori: <span className="text-blue-700">{category}</span></p>
+            <p className="font-semibold">Umur: <span className="text-blue-700">{age}</span></p>
+            <p className="font-semibold">Gender: <span className="text-blue-700">{gender}</span></p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
