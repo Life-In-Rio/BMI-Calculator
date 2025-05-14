@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function App() {
   const [weight, setWeight] = useState("");
@@ -71,6 +72,10 @@ function App() {
             <p className="font-semibold">Gender: <span className="text-blue-700">{gender}</span></p>
           </div>
         )}
+
+        <Link to="/detail" className="text-blue-600 underline mt-6 inline-block">
+          Lihat Tips Hidup Sehat
+        </Link>
       </div>
     </div>
   );
